@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         //   docs/index 시큐리티 미적용
 
         web.ignoring().mvcMatchers("/docs/index.html");
+        web.ignoring().antMatchers("/webjars/**");
         //   기본 위치에는 시큐리티 미적용
         web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
         web.ignoring().antMatchers( "/h2-console/**");
