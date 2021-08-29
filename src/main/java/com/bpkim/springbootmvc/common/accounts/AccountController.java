@@ -19,6 +19,7 @@ public class AccountController {
 
         Account account = new Account();
         account.setEmail(accountDto.getEmail());
+        account.setUsername(accountDto.getEmail());
         account.setPassword(accountDto.getPassword());
 
 
