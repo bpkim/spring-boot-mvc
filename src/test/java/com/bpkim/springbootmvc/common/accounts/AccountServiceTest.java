@@ -1,4 +1,4 @@
-package com.bpkim.springbootmvc.accounts;
+package com.bpkim.springbootmvc.common.accounts;
 
 import com.bpkim.springbootmvc.common.AppProperties;
 import org.junit.Test;

@@ -1,8 +1,8 @@
 package com.bpkim.springbootmvc.configs;
 
-import com.bpkim.springbootmvc.accounts.Account;
-import com.bpkim.springbootmvc.accounts.AccountRole;
-import com.bpkim.springbootmvc.accounts.AccountService;
+import com.bpkim.springbootmvc.common.accounts.Account;
+import com.bpkim.springbootmvc.common.accounts.AccountRole;
+import com.bpkim.springbootmvc.common.accounts.AccountService;
 import com.bpkim.springbootmvc.common.RestDocsConfiguration;
 import com.bpkim.springbootmvc.common.TestDescription;
 import org.junit.Test;

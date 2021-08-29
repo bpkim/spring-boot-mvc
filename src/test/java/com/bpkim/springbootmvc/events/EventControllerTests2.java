@@ -1,9 +1,9 @@
 package com.bpkim.springbootmvc.events;
 
-import com.bpkim.springbootmvc.accounts.Account;
-import com.bpkim.springbootmvc.accounts.AccountRepository;
-import com.bpkim.springbootmvc.accounts.AccountRole;
-import com.bpkim.springbootmvc.accounts.AccountService;
+import com.bpkim.springbootmvc.common.accounts.Account;
+import com.bpkim.springbootmvc.common.accounts.AccountRepository;
+import com.bpkim.springbootmvc.common.accounts.AccountRole;
+import com.bpkim.springbootmvc.common.accounts.AccountService;
 import com.bpkim.springbootmvc.common.AppProperties;
 import com.bpkim.springbootmvc.common.RestDocsConfiguration;
 import com.bpkim.springbootmvc.common.TestDescription;

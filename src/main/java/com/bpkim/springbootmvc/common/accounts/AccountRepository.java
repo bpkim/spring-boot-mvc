@@ -1,4 +1,4 @@
-package com.bpkim.springbootmvc.accounts;
+package com.bpkim.springbootmvc.common.accounts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

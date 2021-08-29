@@ -1,6 +1,6 @@
 package com.bpkim.springbootmvc.events;
 
-import com.bpkim.springbootmvc.accounts.Account;
+import com.bpkim.springbootmvc.common.accounts.Account;
 import lombok.*;
 
 import javax.persistence.*;
