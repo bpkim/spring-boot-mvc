@@ -15,6 +15,16 @@
 <a href="main">main</a>
 <p sec:authorize="hasRole('ADMIN')">[이 부분은 운영자(ADMIN)에게만 나타남]</p>
 <p sec:authorize="hasRole('USER')">[이 부분은 사용자(USER)에게만 나타남]</p>
-<p sec:authorize="isAuthenticated()">[이 부분은 로그인한 사용자(isAuthenticated) 모두에게 나타남]<p>
+<div sec:authorize="isAuthenticated()">
+    <p>[이 부분은 로그인한 사용자(isAuthenticated) 모두에게 나타남]<p>
+    <b>Authenticated DTO:</b>
+    <b>인증시 사용된 객체에 대한 정보</b>
+    <div sec:authentication="principal"></div>
+    <b>인증시 사용된 객체의 username</b>
+    <div sec:authentication="name"></div>
+    <b>인증시 사용된 객체의 권한 </b>
+    <div sec:authentication="principal.authorities"></div>
+</div>
+
 </body>
 </html>
