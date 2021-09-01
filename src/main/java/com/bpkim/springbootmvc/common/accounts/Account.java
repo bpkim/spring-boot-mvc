@@ -26,6 +26,8 @@ public class Account implements UserDetails {
     private String username;
     private String password;
 
+    private String uid;
+
     private boolean accountNotExpired = true;
     private boolean accountNonLocked = true;
     private boolean credentialsNonExpired = true;

@@ -1,12 +1,12 @@
 package com.bpkim.springbootmvc.events;
 
+import com.bpkim.springbootmvc.common.AppProperties;
+import com.bpkim.springbootmvc.common.RestDocsConfiguration;
+import com.bpkim.springbootmvc.common.TestDescription;
 import com.bpkim.springbootmvc.common.accounts.Account;
 import com.bpkim.springbootmvc.common.accounts.AccountRepository;
 import com.bpkim.springbootmvc.common.accounts.AccountRole;
 import com.bpkim.springbootmvc.common.accounts.AccountService;
-import com.bpkim.springbootmvc.common.AppProperties;
-import com.bpkim.springbootmvc.common.RestDocsConfiguration;
-import com.bpkim.springbootmvc.common.TestDescription;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -21,7 +21,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.security.oauth2.common.util.Jackson2JsonParser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -37,9 +36,7 @@ import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.li
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -473,11 +470,11 @@ public class EventControllerTests2 {
                 .param("password", password)
                 .param("grant_type", "password")
         );
-
-        var resultString = result.andReturn().getResponse().getContentAsString();
-        Jackson2JsonParser parser = new Jackson2JsonParser();
-        return parser.parseMap(resultString).get("access_token").toString();
-
-
+//
+//        var resultString = result.andReturn().getResponse().getContentAsString();
+//        Jackson2JsonParser parser = new Jackson2JsonParser();
+//        return parser.parseMap(resultString).get("access_token").toString();
+//
+        return null;
     }
 }
