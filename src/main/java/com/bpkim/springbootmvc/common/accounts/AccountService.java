@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -33,13 +34,16 @@ public class AccountService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account account = this.accountRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException(username));
-//
-//        Account account = new Account();
-//        account.setEmail("qwer");
-//        account.setPassword(this.passwordEncoder.encode("qwer"));
-//        Collection<SimpleGrantedAuthority> accountRoles = new HashSet<>();
-//        accountRoles.add(new SimpleGrantedAuthority("ROLE+"+AccountRole.ADMIN.name()));
+//        Account account = this.accountRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException(username));
+
+        Account account = new Account();
+        account.setEmail("admin@naver.com");
+        account.setUsername("admin");
+        account.setPassword(this.passwordEncoder.encode("qwer"));
+
+        Set<AccountRole> roles = new HashSet<>();
+        roles.add(AccountRole.ADMIN);
+        account.setRoles(roles);
         System.out.println("User "+account.getEmail());
         System.out.println("Password "+account.getPassword());
         System.out.println(this.passwordEncoder.matches("qwer", account.getPassword()));
