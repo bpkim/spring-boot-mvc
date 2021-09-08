@@ -76,6 +76,8 @@ function fn_initTable(){
             +"</tr>");
     });
 
+    fn_setEventBtn();
+
 
 }
 function fn_setCheckBox(){
@@ -200,6 +202,8 @@ function fn_setEvent(){
                 +"</tr>");
         });
 
+        fn_setEventBtn();
+
     });
 
 
@@ -243,6 +247,64 @@ function fn_setEvent(){
     });
 
 
+
+
+    $("#nextPage").on("click", function(){
+
+
+        var pageNum= Number($("#pageNum").text());
+
+        $("#pageNum").text(pageNum+1);
+
+        var tbody = $("#checkboxTestTbl").children('tbody');
+        tbody.children().remove();
+
+        nowList.forEach(function (value, index) {
+            value.no = Number(value.no) +10;
+            tbody.append(    "<tr>"
+                +"<td><input type=\"checkbox\" name=\"rowchk\"/></td>"
+                +"<td>"+value.no+"</td>"
+                +"<td>"+value.title+"</td>"
+                +"<td>"+value.date+"</td>"
+                +"<td><input type=\"button\" name=\"clickBtn\" value=\"클릭\"></td>"
+                +"</tr>");
+        });
+
+        fn_setEventBtn();
+    });
+
+
+    $("#prePage").on("click", function(){
+
+        var pageNum= Number($("#pageNum").text());
+        if(pageNum == 1){
+            alert("1페이지 입니다.");
+            return;
+        }
+        $("#pageNum").text(pageNum-1);
+
+        var tbody = $("#checkboxTestTbl").children('tbody');
+        tbody.children().remove();
+
+        nowList.forEach(function (value, index) {
+            value.no = Number(value.no) - 10;
+            tbody.append(    "<tr>"
+                +"<td><input type=\"checkbox\" name=\"rowchk\"/></td>"
+                +"<td>"+value.no+"</td>"
+                +"<td>"+value.title+"</td>"
+                +"<td>"+value.date+"</td>"
+                +"<td><input type=\"button\" name=\"clickBtn\" value=\"클릭\"></td>"
+                +"</tr>");
+        });
+
+        fn_setEventBtn();
+
+    });
+
+}
+
+function fn_setEventBtn(){
+
     $("input[name=clickBtn]").on("click", function(){
 
 
@@ -279,57 +341,6 @@ function fn_setEvent(){
         $("#resultRow").html(" 체크된 데이터 "+tr.text());
         console.log(tdArr);
     })
-
-    $("#nextPage").on("click", function(){
-
-
-        var pageNum= Number($("#pageNum").text());
-
-        $("#pageNum").text(pageNum+1);
-
-        var tbody = $("#checkboxTestTbl").children('tbody');
-        tbody.children().remove();
-
-        nowList.forEach(function (value, index) {
-            value.no = Number(value.no) +10;
-            tbody.append(    "<tr>"
-                +"<td><input type=\"checkbox\" name=\"rowchk\"/></td>"
-                +"<td>"+value.no+"</td>"
-                +"<td>"+value.title+"</td>"
-                +"<td>"+value.date+"</td>"
-                +"<td><input type=\"button\" name=\"clickBtn\" value=\"클릭\"></td>"
-                +"</tr>");
-        });
-
-    });
-
-
-    $("#prePage").on("click", function(){
-
-        var pageNum= Number($("#pageNum").text());
-        if(pageNum == 1){
-            alert("1페이지 입니다.");
-            return;
-        }
-        $("#pageNum").text(pageNum-1);
-
-        var tbody = $("#checkboxTestTbl").children('tbody');
-        tbody.children().remove();
-
-        nowList.forEach(function (value, index) {
-            value.no = Number(value.no) - 10;
-            tbody.append(    "<tr>"
-                +"<td><input type=\"checkbox\" name=\"rowchk\"/></td>"
-                +"<td>"+value.no+"</td>"
-                +"<td>"+value.title+"</td>"
-                +"<td>"+value.date+"</td>"
-                +"<td><input type=\"button\" name=\"clickBtn\" value=\"클릭\"></td>"
-                +"</tr>");
-        });
-
-
-    });
-
 }
 
 function pagination(){
