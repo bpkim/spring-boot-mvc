@@ -75,8 +75,7 @@ public class CommonPageController {
     }
 */
 
-    @MoveLogging
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String login(){
         return "login";
     }

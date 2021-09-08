@@ -10,8 +10,100 @@
 <th:block layout:fragment="script"> </th:block>
 
 <div layout:fragment="content">
+    <script src="/js/content.js" defer></script>
+
+    <style>
+        #checkboxTestTbl {border-collapse: collapse;}
+        #checkboxTestTbl td, #checkboxTestTbl th{padding:10px;}
+        #checkboxTestTbl th{background-color: #ccc;}
+
+        #checkboxTestTbl tr.selected{background-color: navy;color: #fff; font-weight: bold;}
+        #pagination a {
+            display:inline-block;
+            margin-right:5px;
+            cursor:pointer;
+        }
+    </style>
+
     <div>
         <button type="button" onclick="a()">버튼</button>
+        <button type="button" id="getRow">선택 row 얻기</button>
+        <button type="button" id="addRow">row 추가</button>
+        <button type="button" id="delRow">row 삭제</button>
+
+        <table id="checkboxTestTbl" border="1px">
+            <caption>체크박스 전체선택 테스트</caption>
+            <colgroup>
+                <col width="40px;"/>
+                <col width="40px;"/>
+                <col width="200px;"/>
+                <col width="100px;"/>
+                <col width="100px;"/>
+            </colgroup>
+            <thead>
+            <tr>
+                <th><input type="checkbox"/></th>
+                <th>No</th>
+                <th>제목</th>
+                <th>날짜</th>
+                <th>버튼</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+<!--            <tr>
+                <td><input type="checkbox" name="rowchk"/></th>
+                <td>1</td>
+                <td>제목1</td>
+                <td>날짜1</td>
+                <td><input type="button" name="clickBtn" value="클릭"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="rowchk"/></th>
+                <td>2</td>
+                <td>제목2</td>
+                <td>날짜2</td>
+                <td><input type="button" name="clickBtn" value="클릭"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="rowchk"/></th>
+                <td>3</td>
+                <td>제목3</td>
+                <td>날짜3</td>
+                <td><input type="button" name="clickBtn" value="클릭"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="rowchk"/></th>
+                <td>4</td>
+                <td>제목4</td>
+                <td>날짜4</td>
+                <td><input type="button" name="clickBtn" value="클릭"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="rowchk"/></th>
+                <td>5</td>
+                <td>제목5</td>
+                <td>날짜5</td>
+                <td><input type="button" name="clickBtn" value="클릭"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="rowchk"/></th>
+                <td>6</td>
+                <td>제목6</td>
+                <td>날짜6</td>
+                <td><input type="button" name="clickBtn" value="클릭"></td>
+            </tr>-->
+        </table>
+        <ul class="pagination"></ul>
+        <button type="button" id="prePage"> < </button><h6 id="pageNum">1</h6>
+        <button type="button" id="nextPage"> > </button>
+
+        <div id="resultRow">
+
+        </div>
+        <div id="resultTd">
+
+        </div>
+
     </div>
 </div>
 </html>

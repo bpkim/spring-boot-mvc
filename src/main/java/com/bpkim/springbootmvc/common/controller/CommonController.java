@@ -58,7 +58,6 @@ public class CommonController {
 
 
         Account account = accountService.saveAccount(Account.builder()
-                .uid(id)
                 .password(passwordEncoder.encode(password))
                 .username(name)
                 .roles(roles)
