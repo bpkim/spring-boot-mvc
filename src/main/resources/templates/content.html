@@ -10,6 +10,8 @@
 <th:block layout:fragment="script"> </th:block>
 
 <div layout:fragment="content">
+    <!--<script src="/common/compressor/other-compressor.js"></script>-->
+    <script src="/js/common/compressor/compressor.js"></script>
     <script src="/js/content.js" defer></script>
 
     <style>
@@ -104,6 +106,13 @@
 
         </div>
 
+        <div>
+            <!--<img style="width: 500px;" id="previewInputImg" src="">-->
+            <img id="previewInputImg" src="">
+            <input type="file" id="inputImg" accept="image/*"/>
+            <img id="previewOutputImg" src="">
+
+        </div>
     </div>
 </div>
 </html>

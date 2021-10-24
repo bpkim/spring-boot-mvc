@@ -59,6 +59,7 @@ $(document).ready(function() {
     fn_initTable();
     fn_setEvent();
     fn_setCheckBox();
+    fn_setFile();
     // pagination();
 
     // jQuery('.pagination li:first-child').addClass("disabled");
@@ -407,5 +408,70 @@ function pagination(){
         e.preventDefault();
         jQuery('.pagination li:last-child').removeClass("active");
     });
+
+}
+
+function fn_setFile(){
+
+    $("#inputImg").on("change", function(e){
+
+var file = $(this)[0].files[0];
+
+        if (!file) {
+            return;
+        }
+
+        new Compressor(file, {
+            strict: true
+            // , quality: 0.2
+            , maxWidth: 300
+            // , convertSize: 5000000
+            ,
+            //https://fengyuanchen.github.io/compressorjs/
+            //https://moonsiri.tistory.com/59
+            // The compression process is asynchronous,
+            // which means you have to access the `result` in the `success` hook function.
+            success(result) {
+                var formData = new FormData();
+
+                // The third parameter is required for server
+                formData.append('file', result, result.name);
+
+                // Send the compressed image file to server with XMLHttpRequest.
+                // axios.post('/path/to/upload', formData).then(() => {
+                //     console.log('Upload success');
+                // });
+
+
+                // setImageFromFile(result, "#previewOutputImg");
+
+                $("#previewOutputImg").attr('src', URL.createObjectURL(result));
+            },
+            error(err) {
+                console.log(err.message);
+            },
+        });
+
+        setImageFromFile(this, "#previewInputImg");
+
+
+
+
+    });
+
+    function setImageFromFile(input, expression) {
+        if (input.files && input.files[0])
+        {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(expression).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+    // previewOutputImg
 
 }
